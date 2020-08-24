@@ -4,7 +4,10 @@
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  background: #0d1f2d;
+}
+
+.header .title {
+  color: #fff;
 }
 
 .header .title::first-letter {
@@ -50,8 +53,4 @@
   padding: 10px;
   border-radius: var(--border-radius);
   transition: 300ms;
-}
-
-.header .navbar-wrapper .search input:focus {
-  width: 350px;
 }

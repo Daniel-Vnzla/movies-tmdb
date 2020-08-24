@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="header">
-      <h1 className="title">MoV</h1>
+      <Link to="/">
+        <h1 className="title">MoV</h1>
+      </Link>
       <div className="navbar-wrapper">
         <nav className="navbar">
           <Link className="nav-item" to="/movies">
