@@ -1,5 +1,5 @@
 .header {
-  color: #fff;
+  color: var(--text-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -7,11 +7,11 @@
 }
 
 .header .title {
-  color: #fff;
+  color: var(--text-color);
 }
 
 .header .title::first-letter {
-  color: #af1b3f;
+  color: var(--primary);
 }
 
 .header .navbar-wrapper {
@@ -35,22 +35,26 @@
 .header .navbar-wrapper .navbar .nav-item {
   font-weight: bold;
   border-radius: var(--border-radius);
-  color: #fff;
+  color: var(--text-color);
   padding: 10px;
   margin: 0 6px;
   transition: 400ms background;
 }
 
 .header .navbar-wrapper .navbar .nav-item:hover {
-  background: #af1b3f;
+  background: var(--primary);
 }
 
 .header .navbar-wrapper .search input {
-  color: #fff;
+  color: var(--text-color);
   border: none;
   background: #77777785;
   height: 32px;
   padding: 10px;
   border-radius: var(--border-radius);
   transition: 300ms;
+}
+
+.header .navbar-wrapper .search input:focus {
+  width: 300px;
 }
