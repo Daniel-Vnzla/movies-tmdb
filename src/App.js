@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import Header from "./common/Header/Header.js";
-import SubHeader from "./components/SubHeadBar.js";
+import SlideShow from "./components/SlideShow/SlideShow.js";
+import SlideShowCard from "./components/SlideShow/SlideShowCard.js";
 
 function App() {
   return (
@@ -10,7 +11,11 @@ function App() {
       <BrowserRouter>
         <div className="container">
           <Header />
-          <SubHeader />
+          <SlideShow>
+            <SlideShowCard />
+            <SlideShowCard />
+            <SlideShowCard />
+          </SlideShow>
         </div>
       </BrowserRouter>
     </div>
