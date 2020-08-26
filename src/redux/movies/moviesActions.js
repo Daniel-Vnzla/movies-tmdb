@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import { addImgPathToData, api } from "../../utilsApi/api.js";
+
 import {
 	FETCH_MOVIES_REQUEST,
 	FETCH_MOVIES_SUCCESS,
@@ -20,20 +22,13 @@ const moviesFailure = (errors) => ({
 	payload: errors,
 });
 
-const apiAtributes = {
-	apiKey: "74d44b9fc3530ad0da458c3a01816d5c",
-	type: "movie",
-	state: "now_playing",
-	page: 1,
-};
-const api = `https://api.themoviedb.org/3/${apiAtributes.type}/${apiAtributes.state}?api_key=${apiAtributes.apiKey}&language=en-US&page=${apiAtributes.page}`;
-
 export const moviesFetch = () => {
 	return async (dispatch) => {
 		dispatch(moviesRequest());
 		try {
 			const { data } = await axios.get(api);
-			dispatch(moviesSuccess(data.results));
+			const newData = addImgPathToData(data.results);
+			dispatch(moviesSuccess(newData));
 		} catch (err) {
 			dispatch(moviesFailure(err.message));
 			console.log(err);

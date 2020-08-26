@@ -7,18 +7,13 @@ import "./SlideShowCard.css";
 const SlideShowCard = ({ data = {} }) => {
 	if (!data) return "Loading...";
 
-	const fectImage = (img) => {
-		const imgApi = `https://image.tmdb.org/t/p/original${img}`;
-		return imgApi;
-	};
-
 	return (
 		<div className="card-wrapper">
 			<div className="back-drop">
-				<img src={fectImage(data.backdrop_path)} alt={data.title} />
+				<img src={data.backdrop_path} alt={data.title} />
 			</div>
 			<div className="img-section">
-				<img alt="img" src={fectImage(data.poster_path)}></img>
+				<img alt="img" src={data.poster_path}></img>
 				<div className="trailer-container">
 					<button className="trailer-btn">
 						<span className="btn-title">Trailer</span>

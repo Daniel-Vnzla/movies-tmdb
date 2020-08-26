@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SlideShow.css";
 
 const SlideShow = ({ children }) => {
 	const [style, setStyle] = useState({});
 	const [current, setCurrent] = useState(0);
+
+	const moveSliderAuto = () => {
+		let state = 1;
+		setInterval(() => {
+			console.log(state);
+			if (state >= 5) state = 0;
+			setCurrent(state++);
+			handleButtonChange(state);
+		}, 15000);
+	};
+
+	useEffect(() => {
+		moveSliderAuto();
+		return () => clearInterval(moveSliderAuto());
+	}, []);
 
 	const handleButtonChange = (idx) => {
 		const newStyle = {
