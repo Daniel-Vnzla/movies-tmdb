@@ -24,7 +24,15 @@
 	bottom: 0;
 	right: 0;
 	background: var(--bg-color);
-	opacity: 0.8;
+	opacity: 0.9;
+}
+
+.card-wrapper .img-section .img {
+	transition: 300ms transform;
+}
+
+.card-wrapper .img-section:hover .img {
+	transform: translateY(-5px);
 }
 
 .card-wrapper .img-section .trailer-container {
@@ -86,24 +94,24 @@
 	transform: translateX(-15px);
 }
 
+.card-wrapper .info-section {
+	margin: 0 15px;
+	margin-top: 10px;
+}
+
 .card-wrapper .info-section .rating {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 3rem;
 	float: right;
 	width: 250px;
 	height: 250px;
-	border-radius: 50%;
-	border: 4px solid var(--primary);
 }
 
-.card-wrapper .info-section {
-	margin: 0 15px;
+.info-section .rating .rating-text {
+	font-size: 2.5rem;
+	margin-bottom: 5px;
 }
 
 .card-wrapper .info-section .release-date span {
-	font-size: 0.65rem;
+	font-size: 0.7rem;
 	font-weight: bold;
 	margin-bottom: 10px;
 	color: var(--text-color-secondary);

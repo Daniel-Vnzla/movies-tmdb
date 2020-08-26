@@ -6,9 +6,8 @@ const SlideShow = ({ children }) => {
 	const [current, setCurrent] = useState(0);
 
 	const moveSliderAuto = () => {
-		let state = 1;
+		let state = 0;
 		setInterval(() => {
-			console.log(state);
 			if (state >= 5) state = 0;
 			setCurrent(state++);
 			handleButtonChange(state);
