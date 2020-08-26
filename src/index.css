@@ -41,3 +41,20 @@ img {
   width: 90%;
   margin: 0 auto;
 }
+
+@media (max-width: 1200px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  body {
+    font-size: 14px;
+  }
+}

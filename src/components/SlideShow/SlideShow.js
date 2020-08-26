@@ -21,7 +21,7 @@ const SlideShow = ({ children }) => {
 
 	const handleButtonChange = (idx) => {
 		const newStyle = {
-			transform: `translate(-${90 * idx}vw)`,
+			transform: `translate(-${100 * idx}%)`,
 			transition: "300ms transform",
 		};
 		setCurrent(idx);

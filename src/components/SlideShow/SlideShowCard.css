@@ -1,5 +1,5 @@
 .card-wrapper {
-	min-width: 90vw;
+	min-width: 100%;
 	position: relative;
 	margin-top: 60px;
 	display: grid;
@@ -8,6 +8,8 @@
 	padding: 30px;
 	min-height: 400px;
 }
+
+/* ------------- BACK DROP ----------------- */
 
 .card-wrapper .back-drop {
 	position: absolute;
@@ -26,6 +28,8 @@
 	background: var(--bg-color);
 	opacity: 0.9;
 }
+
+/* ------------- IMAGE SECTION --------------- */
 
 .card-wrapper .img-section .img {
 	transition: 300ms transform;
@@ -94,6 +98,8 @@
 	transform: translateX(-15px);
 }
 
+/* -------------- INFO SECTION -------------- */
+
 .card-wrapper .info-section {
 	margin: 0 15px;
 	margin-top: 10px;
@@ -101,8 +107,8 @@
 
 .card-wrapper .info-section .rating {
 	float: right;
-	width: 250px;
-	height: 250px;
+	width: 220px;
+	height: 220px;
 }
 
 .info-section .rating .rating-text {
@@ -132,4 +138,85 @@
 
 .card-wrapper .info-section .sinopsis {
 	margin-top: 50px;
+}
+
+/* ------------ MEDIA QUERY SECTION ------------------ */
+
+@media (max-width: 1200px) {
+	.card-wrapper {
+		position: relative;
+		margin-top: 60px;
+		display: grid;
+		grid-template-columns: 250px 1fr;
+	}
+
+	/* ------- INFO SECTION ------ */
+
+	.card-wrapper .info-section {
+		max-height: 400px;
+	}
+
+	.card-wrapper .info-section .rating {
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		float: right;
+	}
+
+	.card-wrapper .info-section .rating .rating-text {
+		font-size: 1rem;
+		margin-bottom: 10px;
+	}
+
+	.card-wrapper .info-section .title {
+		font-size: 3rem;
+		line-height: 3rem;
+		margin-top: 20px;
+	}
+
+	.card-wrapper .info-section .sinopsis {
+		margin-top: 20px;
+	}
+}
+
+@media (max-width: 720px) {
+	.card-wrapper .back-drop {
+		display: none;
+	}
+
+	.card-wrapper {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* ------ INFO SECTION ------------ */
+
+	.card-wrapper .info-section {
+		position: relative;
+		margin-top: 100px;
+		flex-direction: column;
+	}
+
+	.card-wrapper .info-section .rating {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		float: right;
+	}
+
+	.card-wrapper .info-section .release-date span {
+		margin-bottom: 0;
+	}
+
+	.card-wrapper .info-section .title {
+		margin-top: 5px;
+		line-height: 2.5rem;
+		font-size: 2.5rem;
+	}
+
+	.card-wrapper .info-section .rating .rating-text {
+		font-size: 1rem;
+		margin-bottom: 10px;
+	}
 }

@@ -1,6 +1,7 @@
 .slideshow-container {
 	position: relative;
 	overflow: hidden;
+	padding-bottom: 70px;
 }
 
 .slideshow-container .slideshow-items {
@@ -42,4 +43,15 @@
 
 .slideshow-container .active {
 	background: var(--primary);
+}
+
+/* ------- MEDIA QUERYS -------- */
+
+@media (max-width: 720px) {
+	.slideshow-container .slideshow-btn-container {
+		position: absolute;
+		bottom: 0;
+		left: 25%;
+		margin-bottom: 10px;
+	}
 }
