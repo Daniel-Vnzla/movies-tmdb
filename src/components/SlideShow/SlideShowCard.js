@@ -1,14 +1,24 @@
 import React from "react";
-import poster from "../../images/poster.jpg";
+
 import arrow from "../../images/arrow.png";
 
 import "./SlideShowCard.css";
 
-const SlideShowCard = (props) => {
+const SlideShowCard = ({ data = {} }) => {
+	if (!data) return "Loading...";
+
+	const fectImage = (img) => {
+		const imgApi = `https://image.tmdb.org/t/p/original${img}`;
+		return imgApi;
+	};
+
 	return (
 		<div className="card-wrapper">
+			<div className="back-drop">
+				<img src={fectImage(data.backdrop_path)} alt={data.title} />
+			</div>
 			<div className="img-section">
-				<img alt="img" src={poster}></img>
+				<img alt="img" src={fectImage(data.poster_path)}></img>
 				<div className="trailer-container">
 					<button className="trailer-btn">
 						<span className="btn-title">Trailer</span>
@@ -19,19 +29,11 @@ const SlideShowCard = (props) => {
 			<div className="info-section">
 				<div className="rating">99%</div>
 				<p className="release-date">
-					Release Date: <span>12-12-2222</span>
+					Release Date: <span>{data.release_date}</span>
 				</p>
-				<h2 className="title">titulo de una pelicula</h2>
-				<p className="alternative-title">nombre alternativo</p>
-				<p className="sinopsis">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.
-				</p>
+				<h2 className="title">{data.title}</h2>
+				<p className="alternative-title">{data.original_title}</p>
+				<p className="sinopsis">{data.overview}</p>
 			</div>
 		</div>
 	);
