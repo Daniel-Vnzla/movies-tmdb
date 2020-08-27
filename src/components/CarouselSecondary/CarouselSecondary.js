@@ -1,11 +1,17 @@
-import React, { useRef } from "react";
-import PosterContainer from "../ImageContainer/PosterContainer.js";
+import React, { useRef, useState } from "react";
+import PropTypes from "prop-types";
 import "./CarouselSecondary.css";
 
-const CarouselSecondary = ({ data = [] }) => {
+import PosterContainer from "../ImageContainer/PosterContainer.js";
+
+import { useRedux } from "../../CustomHooks.js";
+
+const CarouselSecondary = ({ title }) => {
+	const getListOfPrograms = useRedux();
+	const [activeButton, setActiveButton] = useState("movies");
 	const carouselRef = useRef();
 
-	function moveCarouselRigth() {
+	function moveCarouselRight() {
 		return (carouselRef.current.scrollLeft += carouselRef.current.offsetWidth);
 	}
 
@@ -13,44 +19,52 @@ const CarouselSecondary = ({ data = [] }) => {
 		return (carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth);
 	}
 
-	const handleMoveCarousel = (direction) => {
-		if (direction === "RIGHT") moveCarouselRigth();
-		if (direction === "LEFT") moveCarouselLeft();
+	const setMoviesOrTvShows = () => {
+		return getListOfPrograms[activeButton].popular.map((data, i) => (
+			<PosterContainer
+				title={data.title}
+				image={data.poster_path}
+				ratingValue={data.vote_average}
+				key={i}
+			/>
+		));
 	};
 
 	return (
 		<div className="carousel-wrapper">
 			<div className="carousel-menu">
-				<h2 className="title">Popular</h2>
+				<h2 className="title">{title}</h2>
 				<nav className="options">
-					<button className="item active">Movies</button>
-					<button className="item">Tv Shows</button>
+					<button
+						onClick={() => setActiveButton("movies")}
+						className={activeButton === "movies" ? "item active" : "item"}
+					>
+						Movies
+					</button>
+					<button
+						onClick={() => setActiveButton("tvShows")}
+						className={activeButton === "tv shows" ? "item active" : "item"}
+					>
+						Tv Shows
+					</button>
 				</nav>
 			</div>
 			<div ref={carouselRef} className="carousel-container">
-				{data.map(({ title, poster_path, vote_average }, i) => {
-					return (
-						<PosterContainer
-							title={title}
-							image={poster_path}
-							ratingValue={vote_average}
-							key={i}
-						/>
-					);
-				})}
+				{setMoviesOrTvShows()}
 			</div>
 
-			<button
-				onClick={() => handleMoveCarousel("RIGHT")}
-				className="arrow-right"
-			>
+			<button onClick={moveCarouselRight} className="arrow-right">
 				&#8250;
 			</button>
-			<button onClick={() => handleMoveCarousel("LEFT")} className="arrow-left">
+			<button onClick={moveCarouselLeft} className="arrow-left">
 				&#8249;
 			</button>
 		</div>
 	);
+};
+
+CarouselSecondary.propTypes = {
+	title: PropTypes.string.isRequired,
 };
 
 export default CarouselSecondary;

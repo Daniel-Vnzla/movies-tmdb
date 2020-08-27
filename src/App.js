@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 
 import Header from "./common/Header/Header.js";
 import SlideShow from "./components/SlideShow/SlideShow.js";
-import SlideShowCard from "./components/SlideShow/SlideShowCard.js";
 import CarouselSecondary from "./components/CarouselSecondary/CarouselSecondary.js";
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
         <div className="container">
           <Header />
           <SlideShow />
-          <CarouselSecondary />
+          <CarouselSecondary title="Popular" />
         </div>
       </BrowserRouter>
     </div>

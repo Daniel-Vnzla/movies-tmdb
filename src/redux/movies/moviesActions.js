@@ -1,10 +1,6 @@
 import axios from "axios";
 
-import {
-	addImgPathToData,
-	setApi,
-	DefaultapiAtributes,
-} from "../../utilsApi/api.js";
+import { addImgPathToData, setApi } from "../../utilsApi/api.js";
 
 import {
 	FETCH_MOVIES_REQUEST,
@@ -30,9 +26,24 @@ export const moviesFetch = () => {
 	return async (dispatch) => {
 		dispatch(moviesRequest());
 		try {
-			const { data } = await axios.get(setApi(DefaultapiAtributes));
-			const newData = addImgPathToData(data.results);
-			dispatch(moviesSuccess(newData));
+			const fetchApi = {
+				topRating: await axios.get(setApi({ state: "top_rated" })),
+				popular: await axios.get(setApi({ state: "popular" })),
+				nowPlaying: await axios.get(setApi({ state: "now_playing" })),
+				upcoming: await axios.get(setApi({ state: "upcoming" })),
+			};
+
+			const fetchValues = Object.values(fetchApi);
+			const fetchKeys = Object.keys(fetchApi);
+
+			const modifiedData = fetchValues.reduce((acc, movies, i) => {
+				return {
+					...acc,
+					[fetchKeys[i]]: addImgPathToData(movies.data.results),
+				};
+			}, {});
+
+			dispatch(moviesSuccess(modifiedData));
 		} catch (err) {
 			dispatch(moviesFailure(err.message));
 			console.log(err);

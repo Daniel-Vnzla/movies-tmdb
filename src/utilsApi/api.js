@@ -1,18 +1,19 @@
-export const DefaultapiAtributes = {
+const defaultApiAtributes = {
 	apiKey: "74d44b9fc3530ad0da458c3a01816d5c",
 	type: "movie",
-	state: "now_playing",
+	state: "top_rated",
 	page: 1,
 	imgPath: "https://image.tmdb.org/t/p/original",
 };
 
-export const setApi = ({ type, state, apiKey, page, imgPath }) => {
-	return `https://api.themoviedb.org/3/${type}/${state}?api_key=${apiKey}&language=en-US&page=${page}`;
+export const setApi = (newApiState) => {
+	const apiState = { ...defaultApiAtributes, ...newApiState };
+	return `https://api.themoviedb.org/3/${apiState.type}/${apiState.state}?api_key=${apiState.apiKey}&language=en-US&page=${apiState.page}`;
 };
 
 export const addImgPathToData = (data) =>
 	data.map(({ backdrop_path, poster_path, ...rest }) => ({
 		...rest,
-		backdrop_path: DefaultapiAtributes.imgPath + backdrop_path,
-		poster_path: DefaultapiAtributes.imgPath + poster_path,
+		backdrop_path: defaultApiAtributes.imgPath + backdrop_path,
+		poster_path: defaultApiAtributes.imgPath + poster_path,
 	}));

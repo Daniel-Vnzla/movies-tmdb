@@ -1,28 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./SlideShow.css";
-import { useFetch } from "../../CustomHooks.js";
+import { useRedux } from "../../CustomHooks.js";
 
 import SlideShowCard from "./SlideShowCard.js";
 
 const SlideShow = () => {
-	const movies = useFetch();
+	const movies = useRedux();
 	const [style, setStyle] = useState({});
 	const [current, setCurrent] = useState(0);
 
-	const moviesSlideShow = movies.topRating.slice(0, 6);
-	const moveSliderAuto = () => {
-		let state = 0;
-		setInterval(() => {
-			if (state >= 5) state = 0;
-			setCurrent(state++);
-			handleButtonChange(state);
-		}, 15000);
-	};
-
-	useEffect(() => {
-		moveSliderAuto();
-		return () => clearInterval(moveSliderAuto());
-	}, []);
+	const sliceMoviesToShowInSlider = movies.movies.topRating
+		.slice(0, 6)
+		.map((movie) => <SlideShowCard key={movie.id} data={movie} />);
 
 	const handleButtonChange = (idx) => {
 		const newStyle = {
@@ -36,12 +25,10 @@ const SlideShow = () => {
 	return (
 		<div className="slideshow-container">
 			<div className="slideshow-items" style={style}>
-				{moviesSlideShow.map((movie) => (
-					<SlideShowCard key={movie.id} data={movie} />
-				))}
+				{sliceMoviesToShowInSlider}
 			</div>
 			<div className="slideshow-btn-container">
-				{moviesSlideShow.map((_, idx) => (
+				{sliceMoviesToShowInSlider.map((_, idx) => (
 					<button
 						key={idx}
 						onClick={() => handleButtonChange(idx)}

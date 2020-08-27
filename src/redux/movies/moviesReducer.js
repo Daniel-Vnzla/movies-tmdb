@@ -32,10 +32,7 @@ const moviesReducer = (state = initialState, { type, payload }) => {
 		case FETCH_MOVIES_SUCCESS:
 			return {
 				...state,
-				movies: {
-					...state.movies,
-					topRating: payload,
-				},
+				movies: payload,
 				loading: false,
 			};
 

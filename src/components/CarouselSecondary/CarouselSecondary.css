@@ -4,6 +4,8 @@
 	border-radius: var(--border-radius);
 }
 
+/* ---------- CAROUSEL MENU -------------- */
+
 .carousel-wrapper .carousel-menu {
 	background: var(--bg-color);
 	position: relative;
@@ -23,6 +25,8 @@
 	left: 0;
 	font-size: 2.5rem;
 }
+
+/* <<<<<< OPTIONS >>>>>>> */
 
 .carousel-wrapper .carousel-menu .options {
 	margin: 5px 20px;
@@ -53,10 +57,25 @@
 	transition: 300ms transform ease-in-out;
 }
 
-.carousel-wrapper .carousel-menu .options .item:hover::before,
-.carousel-wrapper .carousel-menu .options .item:focus::before {
+.carousel-wrapper .carousel-menu .options .item:hover::before {
 	transform: scaleX(1);
 }
+
+/* <<<<<< ACTIVE >>>>>>> */
+
+.carousel-wrapper .carousel-menu .options .active::before {
+	position: absolute;
+	content: "";
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transform: scaleX(1);
+	height: 3px;
+	background: var(--primary);
+	transition: 300ms transform ease-in-out;
+}
+
+/* ------ CAROUSEL CONTAINER --------- */
 
 .carousel-wrapper .carousel-container {
 	padding: 10px;
