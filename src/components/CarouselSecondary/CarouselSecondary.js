@@ -3,13 +3,19 @@ import PosterContainer from "../ImageContainer/PosterContainer.js";
 import "./CarouselSecondary.css";
 
 const CarouselSecondary = ({ data = [] }) => {
-	const carousel = useRef();
+	const carouselRef = useRef();
+
+	function moveCarouselRigth() {
+		return (carouselRef.current.scrollLeft += carouselRef.current.offsetWidth);
+	}
+
+	function moveCarouselLeft() {
+		return (carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth);
+	}
+
 	const handleMoveCarousel = (direction) => {
-		if (direction === "RIGHT") {
-			carousel.current.scrollLeft += carousel.current.offsetWidth;
-		} else {
-			carousel.current.scrollLeft -= carousel.current.offsetWidth;
-		}
+		if (direction === "RIGHT") moveCarouselRigth();
+		if (direction === "LEFT") moveCarouselLeft();
 	};
 
 	return (
@@ -21,7 +27,7 @@ const CarouselSecondary = ({ data = [] }) => {
 					<button className="item">Tv Shows</button>
 				</nav>
 			</div>
-			<div ref={carousel} className="carousel-container">
+			<div ref={carouselRef} className="carousel-container">
 				{data.map(({ title, poster_path, vote_average }, i) => {
 					return (
 						<PosterContainer

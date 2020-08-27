@@ -39,6 +39,9 @@ img {
   object-fit: cover;
 }
 
+button:disabled {
+  opacity: 0.3;
+}
 .container {
   width: 90%;
   margin: 0 auto;

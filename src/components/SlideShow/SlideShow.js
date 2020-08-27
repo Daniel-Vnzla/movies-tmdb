@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./SlideShow.css";
+import { useFetch } from "../../CustomHooks.js";
 
-const SlideShow = ({ children }) => {
+import SlideShowCard from "./SlideShowCard.js";
+
+const SlideShow = () => {
+	const movies = useFetch();
 	const [style, setStyle] = useState({});
 	const [current, setCurrent] = useState(0);
 
+	const moviesSlideShow = movies.topRating.slice(0, 6);
 	const moveSliderAuto = () => {
 		let state = 0;
 		setInterval(() => {
@@ -28,20 +33,24 @@ const SlideShow = ({ children }) => {
 		setStyle(newStyle);
 	};
 
-	const buttonSlider = children.map((_, idx) => (
-		<button
-			key={idx}
-			onClick={() => handleButtonChange(idx)}
-			className={current === idx ? "slideshow-btn active" : "slideshow-btn"}
-		></button>
-	));
-
 	return (
 		<div className="slideshow-container">
 			<div className="slideshow-items" style={style}>
-				{children}
+				{moviesSlideShow.map((movie) => (
+					<SlideShowCard key={movie.id} data={movie} />
+				))}
 			</div>
-			<div className="slideshow-btn-container">{buttonSlider}</div>
+			<div className="slideshow-btn-container">
+				{moviesSlideShow.map((_, idx) => (
+					<button
+						key={idx}
+						onClick={() => handleButtonChange(idx)}
+						className={
+							current === idx ? "slideshow-btn active" : "slideshow-btn"
+						}
+					></button>
+				))}
+			</div>
 		</div>
 	);
 };

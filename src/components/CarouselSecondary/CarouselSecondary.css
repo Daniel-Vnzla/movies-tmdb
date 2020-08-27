@@ -2,7 +2,6 @@
 	position: relative;
 	background: var(--terciary);
 	border-radius: var(--border-radius);
-	min-height: 300px;
 }
 
 .carousel-wrapper .carousel-menu {
@@ -60,6 +59,7 @@
 }
 
 .carousel-wrapper .carousel-container {
+	padding: 10px;
 	display: flex;
 	margin: 15px 50px;
 	overflow: hidden;
