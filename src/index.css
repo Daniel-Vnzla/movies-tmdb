@@ -12,11 +12,13 @@
   --text-color: #f9f9f9;
   --primary: #af1b3f;
   --secondary: #d92bc2;
+  --terciary: #214e71;
   --bg-color: #0d1f2d;
   --text-color-secondary: #c3c3c3;
 }
 
 body {
+  color: var(--text-color);
   background: var(--bg-color);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

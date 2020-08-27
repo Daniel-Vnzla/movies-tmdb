@@ -25,8 +25,8 @@ const SlideShowCard = ({ data = {} }) => (
 		<div className="info-section">
 			<div className="rating">
 				<CircularProgressBar
-					value={data.vote_average * 10}
-					text={`${data.vote_average * 10}%`}
+					value={data.vote_average}
+					text={`${data.vote_average}%`}
 					className="rating-text"
 				/>
 			</div>

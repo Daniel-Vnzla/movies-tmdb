@@ -17,6 +17,8 @@ const CircularProgressBar = ({ text, value, className }) => (
 		value={value}
 		strokeWidth={5}
 		styles={styles}
+		minValue="0.0"
+		maxValue="10"
 	>
 		<p className={className}>{text}</p>
 	</CircularProgressbarWithChildren>

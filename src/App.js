@@ -7,9 +7,9 @@ import { moviesFetch } from "./redux/movies/moviesActions.js";
 import Header from "./common/Header/Header.js";
 import SlideShow from "./components/SlideShow/SlideShow.js";
 import SlideShowCard from "./components/SlideShow/SlideShowCard.js";
+import CarouselSecondary from "./components/CarouselSecondary/CarouselSecondary.js";
 
 function App() {
-  console.log("render");
   const movies = useSelector(({ movies }) => movies);
   const dispatch = useDispatch();
 
@@ -20,12 +20,14 @@ function App() {
   useEffect(() => {
     dispatch(moviesFetch());
   }, [dispatch]);
+
   return (
     <div className="App">
       <BrowserRouter>
         <div className="container">
           <Header />
           <SlideShow>{moviesSlideShow}</SlideShow>
+          <CarouselSecondary data={movies.topRating} />
         </div>
       </BrowserRouter>
     </div>

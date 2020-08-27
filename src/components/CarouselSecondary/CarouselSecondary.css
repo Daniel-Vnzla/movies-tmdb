@@ -1,0 +1,103 @@
+.carousel-wrapper {
+	position: relative;
+	background: var(--terciary);
+	border-radius: var(--border-radius);
+	min-height: 300px;
+}
+
+.carousel-wrapper .carousel-menu {
+	background: var(--bg-color);
+	position: relative;
+	margin-top: 50px;
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+}
+
+.carousel-wrapper .carousel-menu .title {
+	position: absolute;
+	background: var(--terciary);
+	top: -50%;
+	border-top-left-radius: var(--border-radius);
+	border-top-right-radius: var(--border-radius);
+	padding: 2px 15px;
+	left: 0;
+	font-size: 2.5rem;
+}
+
+.carousel-wrapper .carousel-menu .options {
+	margin: 5px 20px;
+	margin-left: 195px;
+	display: flex;
+}
+
+.carousel-wrapper .carousel-menu .options .item {
+	position: relative;
+	color: var(--text-color);
+	margin: 0 5px;
+	padding: 5px 10px;
+	font-size: 1rem;
+
+	background: none;
+	border-style: none;
+	cursor: pointer;
+}
+.carousel-wrapper .carousel-menu .options .item::before {
+	position: absolute;
+	content: "";
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transform: scaleX(0);
+	height: 3px;
+	background: var(--primary);
+	transition: 300ms transform ease-in-out;
+}
+
+.carousel-wrapper .carousel-menu .options .item:hover::before,
+.carousel-wrapper .carousel-menu .options .item:focus::before {
+	transform: scaleX(1);
+}
+
+.carousel-wrapper .carousel-container {
+	display: flex;
+	margin: 15px 50px;
+	overflow: hidden;
+	scroll-behavior: smooth;
+}
+
+.carousel-wrapper .arrow-left {
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	background: none;
+	border-style: none;
+	font-weight: bold;
+	color: var(--text-color);
+	font-size: 5rem;
+	transform: translateY(-80%);
+	cursor: pointer;
+	transition: 300ms transform;
+}
+
+.carousel-wrapper .arrow-left:hover {
+	transform: translate(-5px, -80%);
+}
+
+.carousel-wrapper .arrow-right {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	background: none;
+	border-style: none;
+	font-weight: bold;
+	color: var(--text-color);
+	font-size: 5rem;
+	transform: translateY(-80%);
+	cursor: pointer;
+	transition: 300ms transform;
+}
+
+.carousel-wrapper .arrow-right:hover {
+	transform: translate(5px, -80%);
+}
