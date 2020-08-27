@@ -1,6 +1,10 @@
 import axios from "axios";
 
-import { addImgPathToData, api } from "../../utilsApi/api.js";
+import {
+	addImgPathToData,
+	setApi,
+	DefaultapiAtributes,
+} from "../../utilsApi/api.js";
 
 import {
 	FETCH_MOVIES_REQUEST,
@@ -26,7 +30,7 @@ export const moviesFetch = () => {
 	return async (dispatch) => {
 		dispatch(moviesRequest());
 		try {
-			const { data } = await axios.get(api);
+			const { data } = await axios.get(setApi(DefaultapiAtributes));
 			const newData = addImgPathToData(data.results);
 			dispatch(moviesSuccess(newData));
 		} catch (err) {
