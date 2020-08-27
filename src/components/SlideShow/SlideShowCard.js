@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import "./SlideShowCard.css";
@@ -6,7 +7,7 @@ import arrow from "../../images/arrow.png";
 
 import CircularProgressBar from "../CircularProgressBar.js";
 
-const SlideShowCard = ({ data = {} }) => (
+const SlideShowCard = ({ data }) => (
 	<div className="card-wrapper">
 		<div className="back-drop">
 			<img src={data.backdrop_path} alt={data.title} />
@@ -41,5 +42,9 @@ const SlideShowCard = ({ data = {} }) => (
 		</div>
 	</div>
 );
+
+SlideShowCard.propTypes = {
+	data: PropTypes.object.isRequired,
+};
 
 export default SlideShowCard;

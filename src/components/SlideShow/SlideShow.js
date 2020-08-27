@@ -1,17 +1,12 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "./SlideShow.css";
-import { useRedux } from "../../CustomHooks.js";
 
 import SlideShowCard from "./SlideShowCard.js";
 
-const SlideShow = () => {
-	const movies = useRedux();
+const SlideShow = ({ data }) => {
 	const [style, setStyle] = useState({});
 	const [current, setCurrent] = useState(0);
-
-	const sliceMoviesToShowInSlider = movies.movies.topRating
-		.slice(0, 6)
-		.map((movie) => <SlideShowCard key={movie.id} data={movie} />);
 
 	const handleButtonChange = (idx) => {
 		const newStyle = {
@@ -25,10 +20,12 @@ const SlideShow = () => {
 	return (
 		<div className="slideshow-container">
 			<div className="slideshow-items" style={style}>
-				{sliceMoviesToShowInSlider}
+				{data.map((movie) => (
+					<SlideShowCard key={movie.id} data={movie} />
+				))}
 			</div>
 			<div className="slideshow-btn-container">
-				{sliceMoviesToShowInSlider.map((_, idx) => (
+				{data.map((_, idx) => (
 					<button
 						key={idx}
 						onClick={() => handleButtonChange(idx)}
@@ -40,6 +37,10 @@ const SlideShow = () => {
 			</div>
 		</div>
 	);
+};
+
+SlideShow.propTypes = {
+	data: PropTypes.array.isRequired,
 };
 
 export default SlideShow;

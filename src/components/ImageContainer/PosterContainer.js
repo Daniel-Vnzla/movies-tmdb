@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import CircularProgressBar from "../CircularProgressBar.js";
 import "./PosterContainer.css";
@@ -12,7 +13,7 @@ const PosterContainer = ({ image, title, ratingValue }) => {
 					<div className="rating-container">
 						<CircularProgressBar
 							value={ratingValue}
-							text={ratingValue}
+							text={`${ratingValue}%`}
 							className="rating-text"
 						/>
 					</div>
@@ -21,6 +22,12 @@ const PosterContainer = ({ image, title, ratingValue }) => {
 			</Link>
 		</div>
 	);
+};
+
+PosterContainer.protoTypes = {
+	image: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	ratingValue: PropTypes.number.isRequired,
 };
 
 export default PosterContainer;

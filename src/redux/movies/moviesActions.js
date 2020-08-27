@@ -22,28 +22,43 @@ const moviesFailure = (errors) => ({
 	payload: errors,
 });
 
+const addImgPathToObj = (obj) => {
+	const values = Object.values(obj);
+	const keys = Object.keys(obj);
+
+	return values.reduce((acc, movies, i) => {
+		return {
+			...acc,
+			[keys[i]]: addImgPathToData(movies.data.results),
+		};
+	}, {});
+};
+
 export const moviesFetch = () => {
 	return async (dispatch) => {
 		dispatch(moviesRequest());
 		try {
-			const fetchApi = {
+			const fetchMovies = {
 				topRating: await axios.get(setApi({ state: "top_rated" })),
 				popular: await axios.get(setApi({ state: "popular" })),
 				nowPlaying: await axios.get(setApi({ state: "now_playing" })),
 				upcoming: await axios.get(setApi({ state: "upcoming" })),
 			};
 
-			const fetchValues = Object.values(fetchApi);
-			const fetchKeys = Object.keys(fetchApi);
+			const fetchTvShows = {
+				upcoming: await axios.get(setApi({ state: "top_rated", type: "tv" })),
+				popular: await axios.get(setApi({ state: "popular", type: "tv" })),
+				nowPlaying: await axios.get(
+					setApi({ state: "on_the_air", type: "tv" })
+				),
+			};
 
-			const modifiedData = fetchValues.reduce((acc, movies, i) => {
-				return {
-					...acc,
-					[fetchKeys[i]]: addImgPathToData(movies.data.results),
-				};
-			}, {});
+			const moviesModified = addImgPathToObj(fetchMovies);
+			const tvShowsModified = addImgPathToObj(fetchTvShows);
 
-			dispatch(moviesSuccess(modifiedData));
+			dispatch(
+				moviesSuccess({ movies: moviesModified, tvShows: tvShowsModified })
+			);
 		} catch (err) {
 			dispatch(moviesFailure(err.message));
 			console.log(err);

@@ -4,31 +4,36 @@ import "./CarouselSecondary.css";
 
 import PosterContainer from "../ImageContainer/PosterContainer.js";
 
-import { useRedux } from "../../CustomHooks.js";
-
-const CarouselSecondary = ({ title }) => {
-	const getListOfPrograms = useRedux();
+const CarouselSecondary = ({ data, title, typeData }) => {
 	const [activeButton, setActiveButton] = useState("movies");
 	const carouselRef = useRef();
 
 	function moveCarouselRight() {
-		return (carouselRef.current.scrollLeft += carouselRef.current.offsetWidth);
+		carouselRef.current.scrollLeft += carouselRef.current.offsetWidth;
 	}
 
 	function moveCarouselLeft() {
-		return (carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth);
+		carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth;
 	}
 
-	const setMoviesOrTvShows = () => {
-		return getListOfPrograms[activeButton].popular.map((data, i) => (
+	function resetCarouselScroll() {
+		if (carouselRef.current) {
+			carouselRef.current.scrollLeft = 0;
+		}
+	}
+
+	function setMoviesOrTvShows() {
+		resetCarouselScroll();
+
+		return data[activeButton][typeData].map((data, i) => (
 			<PosterContainer
-				title={data.title}
+				title={data.title ? data.title : data.name}
 				image={data.poster_path}
 				ratingValue={data.vote_average}
 				key={i}
 			/>
 		));
-	};
+	}
 
 	return (
 		<div className="carousel-wrapper">
@@ -43,7 +48,7 @@ const CarouselSecondary = ({ title }) => {
 					</button>
 					<button
 						onClick={() => setActiveButton("tvShows")}
-						className={activeButton === "tv shows" ? "item active" : "item"}
+						className={activeButton === "tvShows" ? "item active" : "item"}
 					>
 						Tv Shows
 					</button>
@@ -65,6 +70,8 @@ const CarouselSecondary = ({ title }) => {
 
 CarouselSecondary.propTypes = {
 	title: PropTypes.string.isRequired,
+	data: PropTypes.object.isRequired,
+	typeData: PropTypes.string.isRequired,
 };
 
 export default CarouselSecondary;

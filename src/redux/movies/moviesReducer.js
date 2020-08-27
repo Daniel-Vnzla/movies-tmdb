@@ -7,15 +7,14 @@ import {
 const initialState = {
 	movies: {
 		topRating: [],
-		latest: [],
+		nowPlaying: [],
 		popular: [],
 		upcoming: [],
 	},
 	tvShows: {
-		topRating: [],
-		latest: [],
-		popular: [],
 		upcoming: [],
+		popular: [],
+		nowPlaying: [],
 	},
 	loading: false,
 	error: "",
@@ -32,7 +31,8 @@ const moviesReducer = (state = initialState, { type, payload }) => {
 		case FETCH_MOVIES_SUCCESS:
 			return {
 				...state,
-				movies: payload,
+				movies: payload.movies,
+				tvShows: payload.tvShows,
 				loading: false,
 			};
 

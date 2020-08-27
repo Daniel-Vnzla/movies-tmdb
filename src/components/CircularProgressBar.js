@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
 	CircularProgressbarWithChildren,
 	buildStyles,
@@ -23,5 +24,11 @@ const CircularProgressBar = ({ text, value, className }) => (
 		<p className={className}>{text}</p>
 	</CircularProgressbarWithChildren>
 );
+
+CircularProgressBar.propTypes = {
+	text: PropTypes.string.isRequired,
+	value: PropTypes.number.isRequired,
+	className: PropTypes.string,
+};
 
 export default CircularProgressBar;

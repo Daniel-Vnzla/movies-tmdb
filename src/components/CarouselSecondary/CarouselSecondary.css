@@ -1,4 +1,5 @@
 .carousel-wrapper {
+	margin-top: 100px;
 	position: relative;
 	background: var(--terciary);
 	border-radius: var(--border-radius);
@@ -16,9 +17,7 @@
 }
 
 .carousel-wrapper .carousel-menu .title {
-	position: absolute;
 	background: var(--terciary);
-	top: -50%;
 	border-top-left-radius: var(--border-radius);
 	border-top-right-radius: var(--border-radius);
 	padding: 2px 15px;
@@ -30,7 +29,6 @@
 
 .carousel-wrapper .carousel-menu .options {
 	margin: 5px 20px;
-	margin-left: 195px;
 	display: flex;
 }
 
