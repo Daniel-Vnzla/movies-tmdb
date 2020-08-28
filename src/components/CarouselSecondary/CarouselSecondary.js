@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import "./CarouselSecondary.css";
 
-import PosterContainer from "../ImageContainer/PosterContainer.js";
+import PosterContainer from "../PosterContainer/PosterContainer.js";
 
 const CarouselSecondary = ({ data, title, typeData }) => {
 	const [activeButton, setActiveButton] = useState("movies");
@@ -30,6 +30,7 @@ const CarouselSecondary = ({ data, title, typeData }) => {
 				title={data.title ? data.title : data.name}
 				image={data.poster_path}
 				ratingValue={data.vote_average}
+				id={data.id}
 				key={i}
 			/>
 		));

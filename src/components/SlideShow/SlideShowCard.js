@@ -10,16 +10,21 @@ import CircularProgressBar from "../CircularProgressBar.js";
 const SlideShowCard = ({ data }) => (
 	<div className="card-wrapper">
 		<div className="back-drop">
-			<img src={data.backdrop_path} alt={data.title} />
+			<img loading="lazy" src={data.backdrop_path} alt={data.title} />
 		</div>
 		<div className="img-section">
-			<Link to="/movies/nombre-de-la-pelicula">
-				<img className="img" alt="img" src={data.poster_path}></img>
+			<Link to={`/programs/${data.id}`}>
+				<img
+					loading="lazy"
+					className="img"
+					alt="img"
+					src={data.poster_path}
+				></img>
 			</Link>
 			<div className="trailer-container">
 				<button className="trailer-btn">
 					<span className="btn-title">Trailer</span>
-					<img className="arrow" src={arrow} alt="arrow" />
+					<img loading="lazy" className="arrow" src={arrow} alt="arrow" />
 				</button>
 			</div>
 		</div>
@@ -34,7 +39,7 @@ const SlideShowCard = ({ data }) => (
 			<p className="release-date">
 				Release: <span>{data.release_date}</span>
 			</p>
-			<Link to="/movies/nombre-de-la-pelicula">
+			<Link to={`/programs/${data.id}`}>
 				<h2 className="title">{data.title}</h2>
 			</Link>
 			<p className="alternative-title">{data.original_title}</p>

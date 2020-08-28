@@ -16,7 +16,7 @@ const initialState = {
 		popular: [],
 		nowPlaying: [],
 	},
-	loading: false,
+	loading: true,
 	error: "",
 };
 

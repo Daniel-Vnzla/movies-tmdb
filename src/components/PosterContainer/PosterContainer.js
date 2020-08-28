@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import CircularProgressBar from "../CircularProgressBar.js";
 import "./PosterContainer.css";
 
-const PosterContainer = ({ image, title, ratingValue }) => {
+const PosterContainer = ({ image, title, ratingValue, id }) => {
 	return (
 		<div className="movie-poster">
-			<Link to="/movies/nombre-de-una-pelicula">
+			<Link to={`/programs/${id}`}>
 				<div className="img-container">
-					<img className="img" src={image} alt={image} />
+					<img loading="lazy" className="img" src={image} alt={image} />
 					<div className="rating-container">
 						<CircularProgressBar
 							value={ratingValue}
@@ -28,6 +28,7 @@ PosterContainer.protoTypes = {
 	image: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	ratingValue: PropTypes.number.isRequired,
+	id: PropTypes.number.isRequired,
 };
 
 export default PosterContainer;
