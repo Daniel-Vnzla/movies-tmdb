@@ -56,9 +56,7 @@ export const moviesFetch = () => {
 			const moviesModified = addImgPathToObj(fetchMovies);
 			const tvShowsModified = addImgPathToObj(fetchTvShows);
 
-			dispatch(
-				moviesSuccess({ movies: moviesModified, tvShows: tvShowsModified })
-			);
+			dispatch(moviesSuccess({ movies: moviesModified, tv: tvShowsModified }));
 		} catch (err) {
 			dispatch(moviesFailure(err.message));
 			console.log(err);

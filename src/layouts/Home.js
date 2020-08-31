@@ -7,9 +7,10 @@ import CarouselSecondary from "../components/CarouselSecondary/CarouselSecondary
 const Home = () => {
 	const apiData = useSelector((data) => data);
 	if (apiData.loading) return <p>Loading....</p>;
+
 	const slideShowItems = apiData.movies.topRating.slice(0, 8);
 	return (
-		<div>
+		<div className="container">
 			<SlideShow data={slideShowItems} />
 			<CarouselSecondary title="Popular" data={apiData} typeData="popular" />
 			<CarouselSecondary

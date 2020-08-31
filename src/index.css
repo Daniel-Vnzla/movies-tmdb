@@ -12,7 +12,7 @@
   --text-color: #f9f9f9;
   --primary: #af1b3f;
   --secondary: #d92bc2;
-  --terciary: #214e71;
+  --terciary: #12293b;
   --bg-color: #0d1f2d;
   --text-color-secondary: #c3c3c3;
 }
@@ -35,6 +35,7 @@ code {
 
 img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 

@@ -1,0 +1,97 @@
+.sub-header {
+	position: relative;
+	min-height: 700px;
+	display: flex;
+	align-items: flex-end;
+}
+
+/* ----------- BACKDROP ------------  */
+
+.sub-header .backdrop {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+}
+
+.sub-header .backdrop::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--bg-color);
+	opacity: 0.9;
+}
+
+/* ------------ RATING SECTION -------------- */
+.sub-header .rating-section {
+	position: absolute;
+	top: 100px;
+	right: 100px;
+	width: 200px;
+	height: 200px;
+	transition: 300ms transform;
+}
+
+.sub-header .rating-section:hover {
+	transform: scale(1.1);
+}
+
+.sub-header .rating-section .rating-text {
+	font-size: 2.5rem;
+	margin-bottom: 5px;
+}
+
+/* ----------- DESCRIPTION ------------ */
+
+.sub-header .description {
+	position: relative;
+	display: grid;
+	grid-template-columns: 350px 1fr;
+	height: 350px;
+	background-color: var(--bg-color);
+	border-radius: var(--border-radius);
+	padding: 40px;
+}
+
+/* <<<< IMAGE >>>> */
+
+.sub-header .description .img-container {
+	position: relative;
+	transition: 300ms transform;
+}
+
+.sub-header .description .img-container:hover {
+	transform: translateY(-8px);
+}
+
+.sub-header .description .img-container .float-image-container {
+	position: absolute;
+	top: -200px;
+	width: 100%;
+}
+
+/* <<<< OVERVIEW SECTION >>>> */
+
+.sub-header .description .overview-section {
+	margin-left: 30px;
+}
+
+.sub-header .description .overview-section .title {
+	color: var(--primary);
+	font-size: 3rem;
+	line-height: 3rem;
+}
+
+.sub-header .description .overview-section .original-title {
+	color: var(--text-color-secondary);
+	font-size: 0.9rem;
+}
+
+.sub-header .description .overview-section .sinopsis {
+	margin-top: 30px;
+	font-size: 0.95rem;
+}

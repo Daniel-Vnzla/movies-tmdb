@@ -31,6 +31,7 @@ const CarouselSecondary = ({ data, title, typeData }) => {
 				image={data.poster_path}
 				ratingValue={data.vote_average}
 				id={data.id}
+				type={activeButton}
 				key={i}
 			/>
 		));
@@ -48,8 +49,8 @@ const CarouselSecondary = ({ data, title, typeData }) => {
 						Movies
 					</button>
 					<button
-						onClick={() => setActiveButton("tvShows")}
-						className={activeButton === "tvShows" ? "item active" : "item"}
+						onClick={() => setActiveButton("tv")}
+						className={activeButton === "tv" ? "item active" : "item"}
 					>
 						Tv Shows
 					</button>

@@ -11,7 +11,7 @@ const initialState = {
 		popular: [],
 		upcoming: [],
 	},
-	tvShows: {
+	tv: {
 		upcoming: [],
 		popular: [],
 		nowPlaying: [],
@@ -32,7 +32,7 @@ const moviesReducer = (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				movies: payload.movies,
-				tvShows: payload.tvShows,
+				tv: payload.tv,
 				loading: false,
 			};
 

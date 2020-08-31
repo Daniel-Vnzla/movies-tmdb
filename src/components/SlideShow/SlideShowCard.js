@@ -13,7 +13,7 @@ const SlideShowCard = ({ data }) => (
 			<img loading="lazy" src={data.backdrop_path} alt={data.title} />
 		</div>
 		<div className="img-section">
-			<Link to={`/programs/${data.id}`}>
+			<Link to={`/programs/movies/${data.id}`}>
 				<img
 					loading="lazy"
 					className="img"
@@ -39,7 +39,7 @@ const SlideShowCard = ({ data }) => (
 			<p className="release-date">
 				Release: <span>{data.release_date}</span>
 			</p>
-			<Link to={`/programs/${data.id}`}>
+			<Link to={`/programs/movies/${data.id}`}>
 				<h2 className="title">{data.title}</h2>
 			</Link>
 			<p className="alternative-title">{data.original_title}</p>
