@@ -52,6 +52,6 @@ SubHeader.propTypes = {
 	backDrop: PropTypes.string.isRequired,
 	originalTitle: PropTypes.string.isRequired,
 	overview: PropTypes.string.isRequired,
-	// rating: PropTypes.number.isRequired,
+	rating: PropTypes.number.isRequired,
 };
 export default SubHeader;

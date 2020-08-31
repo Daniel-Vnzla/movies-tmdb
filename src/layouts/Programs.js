@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { setApi } from "../utilsApi/api.js";
 import { useParams } from "react-router-dom";
 
 import SubHeader from "../components/SubHeader/SubHeader.js";
-import InfoDetailsCard from "../components/InfoCardContainer/InfoDetailsCard/InfoDetailsCard.js";
+import InfoContainer from "../components/InfoContent/InfoContainer/InfoContainer.js";
 
-function modifieApiData(obj) {
+function modifieDataApiToRedableHumanString(obj) {
 	const elemToFilter = [
 		"backdrop_path",
 		"id",
@@ -38,10 +39,10 @@ const Programs = () => {
 	useEffect(() => {
 		const api = async () => {
 			const { data } = await axios.get(
-				`https://api.themoviedb.org/3/${type.slice(
-					0,
-					-1
-				)}/${slug}?api_key=74d44b9fc3530ad0da458c3a01816d5c&language=en-US`
+				setApi({
+					id: slug,
+					type: type.slice(0, -1),
+				})
 			);
 			setApiData(data);
 		};
@@ -50,7 +51,6 @@ const Programs = () => {
 
 	return apiData ? (
 		<div>
-			{console.log(apiData)}
 			<SubHeader
 				title={apiData.title}
 				originalTitle={apiData.original_title}
@@ -59,9 +59,7 @@ const Programs = () => {
 				poster={apiData.poster_path}
 				rating={apiData.vote_average}
 			/>
-			<section className="content-section">
-				<InfoDetailsCard data={modifieApiData(apiData)} />
-			</section>
+			<InfoContainer data={modifieDataApiToRedableHumanString(apiData)} />
 		</div>
 	) : (
 		<p>Loading...</p>
