@@ -5,8 +5,13 @@
 
 .movie-poster .title {
 	color: var(--text-color);
+	background: var(--terciary);
+	padding: 5px;
 	font-size: 1.1rem;
 	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .movie-poster .img-container {

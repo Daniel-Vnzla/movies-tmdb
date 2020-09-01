@@ -14,15 +14,19 @@ const CompaniesCardContainer = ({ companies }) => {
 	return (
 		<TitleCard title="Companies">
 			<div style={styles.grid}>
-				{companies.map((c) => {
-					return (
-						<CompanyCard
-							key={c.name}
-							title={c.name}
-							img={`https://image.tmdb.org/t/p/original/${c.logo_path}`}
-						/>
-					);
-				})}
+				{companies.length > 0 ? (
+					companies.map((c) => {
+						return (
+							<CompanyCard
+								key={c.name}
+								title={c.name}
+								img={`https://image.tmdb.org/t/p/original/${c.logo_path}`}
+							/>
+						);
+					})
+				) : (
+					<p>Companies Not found</p>
+				)}
 			</div>
 		</TitleCard>
 	);

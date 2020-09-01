@@ -8,7 +8,7 @@ const Staff = (props) => {
 	const { slug, type } = useParams();
 	const credits = useFetch({
 		id: slug,
-		type: type.slice(0, -1),
+		type: type === "movies" ? "movie" : "tv",
 		state: "credits",
 	});
 

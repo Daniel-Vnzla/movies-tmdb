@@ -11,19 +11,19 @@ const Overview = () => {
 	const { slug, type } = useParams();
 	const video = useFetch({
 		id: slug,
-		type: type.slice(0, -1),
+		type: type === "movies" ? "movie" : "tv",
 		state: "videos",
 	});
 
 	const credits = useFetch({
 		id: slug,
-		type: type.slice(0, -1),
+		type: type === "movies" ? "movie" : "tv",
 		state: "credits",
 	});
 
 	const companies = useFetch({
 		id: slug,
-		type: type.slice(0, -1),
+		type: type === "movies" ? "movie" : "tv",
 	});
 	return (
 		<div>

@@ -7,7 +7,7 @@ const Videos = () => {
 	const { slug, type } = useParams();
 	const videos = useFetch({
 		id: slug,
-		type: type.slice(0, -1),
+		type: type === "movies" ? "movie" : "tv",
 		state: "videos",
 	});
 

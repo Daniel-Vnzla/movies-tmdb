@@ -19,6 +19,8 @@ function modifieDataApiToRedableHumanString(obj) {
 		"video",
 		"vote_count",
 		"belongs_to_collection",
+		"last_episode_to_air",
+		"next_episode_to_air",
 	];
 
 	const humanString = (str) =>
@@ -41,7 +43,7 @@ const Programs = () => {
 			const { data } = await axios.get(
 				setApi({
 					id: slug,
-					type: type.slice(0, -1),
+					type: type === "movies" ? "movie" : "tv",
 				})
 			);
 			setApiData(data);
@@ -51,9 +53,10 @@ const Programs = () => {
 
 	return apiData ? (
 		<div>
+			{console.log(apiData)}
 			<SubHeader
-				title={apiData.title}
-				originalTitle={apiData.original_title}
+				title={apiData.title ? apiData.title : apiData.name}
+				originalTitle={apiData.title ? apiData.original_title : apiData.name}
 				overview={apiData.overview}
 				backDrop={apiData.backdrop_path}
 				poster={apiData.poster_path}
