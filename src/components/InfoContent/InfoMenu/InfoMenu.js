@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link, Route, useRouteMatch, Switch } from "react-router-dom";
-import "./InfoView.css";
+import "./InfoMenu.css";
 
 import Overview from "../InfoContainer/Overview/Overview.js";
 
-const InfoView = (props) => {
+const InfoView = () => {
 	const { url, path } = useRouteMatch();
-	const [option, setOption] = useState("overview");
+	const [activeOption, setOption] = useState("overview");
+
 	const menuOptions = {
 		overview: Overview,
 		videos: Overview,
@@ -25,7 +26,9 @@ const InfoView = (props) => {
 							key={option}
 							onClick={() => setOption(option)}
 							to={`${url}/${option}`}
-							className="navbar-item"
+							className={
+								option === activeOption ? "navbar-item active" : "navbar-item"
+							}
 						>
 							{option}
 						</Link>

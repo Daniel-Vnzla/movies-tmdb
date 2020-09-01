@@ -3,7 +3,7 @@
 
 .info-view .navbar {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 }
 
 .info-view .navbar .navbar-item {
@@ -17,4 +17,8 @@
 
 .info-view .navbar .navbar-item::first-letter {
 	text-transform: uppercase;
+}
+
+.info-view .navbar .active {
+	background: var(--bg-color);
 }

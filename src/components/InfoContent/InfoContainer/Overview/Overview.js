@@ -1,31 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-import { setApi } from "../../../../utilsApi/api.js";
 
-import CardVideo from "../../../../common/Cards/CardVideo.js";
+import { useFetch } from "../../../../customHooks/CustomHooks.js";
 
-const Overview = (props) => {
-	const [data, setData] = useState(null);
+import VideoCard from "../../../../common/Cards/VideoCard.js";
+import CharacterCardContainer from "../../../../common/Cards/CharacterCardContainer.js";
+import CompaniesCardContainer from "../../../../common/Cards/CompaniesCardContainer.js";
+
+const Overview = () => {
 	const { slug, type } = useParams();
-
-	useEffect(() => {
-		const fetchApi = async () => {
-			const { data } = await axios.get(
-				setApi({
-					id: slug,
-					type: type.slice(0, -1),
-					state: "videos",
-				})
-			);
-			setData(data.results);
-		};
-		fetchApi();
-	}, []);
+	const video = useFetch({
+		id: slug,
+		type: type.slice(0, -1),
+		state: "videos",
+	});
+	const credits = useFetch({
+		id: slug,
+		type: type.slice(0, -1),
+		state: "credits",
+	});
+	const companies = useFetch({
+		id: slug,
+		type: type.slice(0, -1),
+	});
 	return (
 		<div>
-			{console.log(data)}
-			{data ? <CardVideo video={data[0].key} /> : <p>Loading...</p>}
+			{console.log(companies)}
+			{video ? <VideoCard video={video[0].key} /> : <p>Loading...</p>}
+			{credits ? (
+				<CharacterCardContainer data={credits.cast.slice(0, 6)} />
+			) : (
+				<p>Loading...</p>
+			)}
+			{companies ? (
+				<CompaniesCardContainer data={companies.production_companies} />
+			) : (
+				<p>Loading....</p>
+			)}
 		</div>
 	);
 };

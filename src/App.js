@@ -6,7 +6,7 @@ import Home from "./layouts/Home.js";
 import Programs from "./layouts/Programs.js";
 import PageError404 from "./layouts/PageError404.js";
 
-import { useRedux } from "./CustomHooks.js";
+import { useRedux } from "./customHooks/CustomHooks.js";
 
 function App() {
   const apiData = useRedux();
