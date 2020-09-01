@@ -3,6 +3,8 @@ import { Link, Route, useRouteMatch, Switch } from "react-router-dom";
 import "./InfoMenu.css";
 
 import Overview from "../InfoContainer/Overview/Overview.js";
+import Videos from "../InfoContainer/Videos.js";
+import Staff from "../InfoContainer/Staff.js";
 
 const InfoView = () => {
 	const { url, path } = useRouteMatch();
@@ -10,8 +12,8 @@ const InfoView = () => {
 
 	const menuOptions = {
 		overview: Overview,
-		videos: Overview,
-		staff: Overview,
+		videos: Videos,
+		staff: Staff,
 		companies: Overview,
 		recomendations: Overview,
 		similar: Overview,

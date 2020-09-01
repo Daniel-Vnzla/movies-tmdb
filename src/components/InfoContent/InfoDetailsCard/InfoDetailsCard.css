@@ -1,7 +1,9 @@
 .info-card {
+	margin-top: 30px;
 	padding: 20px;
 	word-wrap: break-word;
 	background-color: var(--terciary);
+	height: fit-content;
 }
 
 .info-card .card-item {

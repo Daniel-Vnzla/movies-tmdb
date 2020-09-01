@@ -1,19 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import TitleCard from "./TitleCard.js";
 import CompanyCard from "./CompanyCard.js";
 
 const styles = {
 	grid: {
-		display: "grid",
-		gridTemplateColumns: "1fr 1fr",
+		display: "flex",
 	},
 };
 
-const CompaniesCardContainer = ({ data }) => {
+const CompaniesCardContainer = ({ companies }) => {
 	return (
 		<TitleCard title="Companies">
 			<div style={styles.grid}>
-				{data.map((c) => {
+				{companies.map((c) => {
 					return (
 						<CompanyCard
 							key={c.name}
@@ -25,6 +26,10 @@ const CompaniesCardContainer = ({ data }) => {
 			</div>
 		</TitleCard>
 	);
+};
+
+CompaniesCardContainer.propTypes = {
+	companies: PropTypes.array.isRequired,
 };
 
 export default CompaniesCardContainer;

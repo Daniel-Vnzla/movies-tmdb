@@ -1,12 +1,17 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const styles = {
 	companieCard: {
-		display: "grid",
-		gridTemplateColumns: "1fr 1fr",
+		width: "fit-content",
+		height: "70px",
 		marginBottom: "5px",
 	},
 	img: {
+		margin: "5px",
+		width: "auto",
+		height: "100%",
+		padding: "5px",
 		background: "#fff",
 	},
 	title: {
@@ -18,11 +23,15 @@ const CompanyCard = ({ img, title }) => {
 	return (
 		<div style={styles.companieCard}>
 			<div style={styles.img}>
-				<img src={img} alt={title} />
+				<img style={styles.img} src={img} alt={title} />
 			</div>
-			<p style={styles.title}>{title}</p>
 		</div>
 	);
+};
+
+CompanyCard.propTypes = {
+	img: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 };
 
 export default CompanyCard;

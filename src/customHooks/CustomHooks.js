@@ -17,19 +17,18 @@ export const useRedux = (props) => {
 };
 
 export const useFetch = (apiState) => {
-	const [data, setData] = useState(null);
+	const [data, setData] = useState([]);
 
 	useEffect(() => {
 		const fetchApi = async () => {
 			try {
-				console.log(setApi(apiState));
 				const { data } = await axios.get(setApi(apiState));
 				setData(data.results ? data.results : data);
 			} catch (err) {
 				console.log(err);
 			}
 		};
-		fetchApi();
+		fetchApi(); // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return data;
 };
