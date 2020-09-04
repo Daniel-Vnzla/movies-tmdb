@@ -5,6 +5,25 @@ import { useParams, useHistory, useRouteMatch } from "react-router-dom";
 
 import SubHeader from "../components/SubHeader/SubHeader.js";
 import InfoContainer from "../components/InfoContent/InfoContainer/InfoContainer.js";
+import Loading from "../components/Loading/Loading.js";
+
+const styles = {
+	loadingContainer: {
+		position: "fixed",
+		top: 0,
+		left: 0,
+		right: 0,
+		bottom: 0,
+		background: "var(--bg-color)",
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	loading: {
+		width: "250px",
+		height: "250px",
+	},
+};
 
 const Programs = () => {
 	const history = useHistory();
@@ -41,7 +60,11 @@ const Programs = () => {
 			<InfoContainer data={modifieObjData(apiData)} />
 		</div>
 	) : (
-		<p>Loading...</p>
+		<div style={styles.loadingContainer}>
+			<div style={styles.loading}>
+				<Loading />
+			</div>
+		</div>
 	);
 };
 

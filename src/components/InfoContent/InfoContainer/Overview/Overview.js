@@ -6,25 +6,49 @@ import { useFetch } from "../../../../customHooks/CustomHooks.js";
 import VideoCard from "../../../../common/Cards/VideoCard.js";
 import CharacterCardContainer from "../../../../common/Cards/CharacterCardContainer.js";
 import CompaniesCardContainer from "../../../../common/Cards/CompaniesCardContainer.js";
+import Loading from "../../../Loading/Loading.js";
+
+const styles = {
+	loadingContainer: {
+		width: "100%",
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	loading: {
+		width: "250px",
+		height: "250px",
+	},
+};
 
 const Overview = () => {
 	const { slug, type } = useParams();
-	const video = useFetch({
+	const { data: video, loading } = useFetch({
 		id: slug,
 		type: type === "movies" ? "movie" : "tv",
 		state: "videos",
 	});
 
-	const credits = useFetch({
+	const { data: credits } = useFetch({
 		id: slug,
 		type: type === "movies" ? "movie" : "tv",
 		state: "credits",
 	});
 
-	const companies = useFetch({
+	const { data: companies } = useFetch({
 		id: slug,
 		type: type === "movies" ? "movie" : "tv",
 	});
+
+	if (loading) {
+		return (
+			<div style={styles.loadingContainer}>
+				<div style={styles.loading}>
+					<Loading />
+				</div>
+			</div>
+		);
+	}
 	return (
 		<div>
 			{video.length > 0 && (

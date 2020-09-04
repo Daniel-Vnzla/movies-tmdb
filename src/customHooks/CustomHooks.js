@@ -18,17 +18,22 @@ export const useRedux = (props) => {
 
 export const useFetch = (apiState) => {
 	const [data, setData] = useState([]);
+	const [loading, setLoadingApis] = useState(0);
 
 	useEffect(() => {
 		const fetchApi = async () => {
+			setLoadingApis((loading) => loading + 1);
 			try {
+				console.log(loading);
 				const { data } = await axios.get(setApi(apiState));
 				setData(data.results ? data.results : data);
 			} catch (err) {
 				console.log(err);
+			} finally {
+				setLoadingApis((loading) => loading - 1);
 			}
 		};
 		fetchApi(); // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	return data;
+	return { data, loading };
 };
