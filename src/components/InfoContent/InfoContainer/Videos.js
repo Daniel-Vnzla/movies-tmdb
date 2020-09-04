@@ -13,7 +13,6 @@ const Videos = () => {
 
 	return (
 		<div>
-			{console.log(videos)}
 			{videos.length > 0 ? (
 				videos.map(({ key, name }) => (
 					<VideoCard key={key} title={name} video={key} />

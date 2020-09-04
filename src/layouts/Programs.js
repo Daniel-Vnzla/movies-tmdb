@@ -1,44 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { setApi } from "../utilsApi/api.js";
-import { useParams } from "react-router-dom";
+import { setApi, modifieObjData } from "../utilsApi/api.js";
+import { useParams, useHistory, useRouteMatch } from "react-router-dom";
 
 import SubHeader from "../components/SubHeader/SubHeader.js";
 import InfoContainer from "../components/InfoContent/InfoContainer/InfoContainer.js";
 
-function modifieDataApiToRedableHumanString(obj) {
-	const elemToFilter = [
-		"backdrop_path",
-		"id",
-		"imdb_id",
-		"original_lenguage",
-		"overview",
-		"poster_path",
-		"revenue",
-		"runtime",
-		"video",
-		"vote_count",
-		"belongs_to_collection",
-		"last_episode_to_air",
-		"next_episode_to_air",
-	];
-
-	const humanString = (str) =>
-		str.charAt(0).toUpperCase() + str.replace(/[_]/g, " ").slice(1);
-
-	const modifiedObjData = Object.keys(obj ? obj : {}).reduce((acc, key) => {
-		if (elemToFilter.indexOf(key) === -1) {
-			return { ...acc, [humanString(key)]: obj[key] };
-		} else return acc;
-	}, {});
-	return modifiedObjData;
-}
-
 const Programs = () => {
+	const history = useHistory();
+	const { url } = useRouteMatch();
 	const { slug, type } = useParams();
 	const [apiData, setApiData] = useState(null);
 
 	useEffect(() => {
+		if (url !== `/programs/${type}/${slug}/overview`) {
+			history.push(`/programs/${type}/${slug}/overview`);
+		}
 		const api = async () => {
 			const { data } = await axios.get(
 				setApi({
@@ -49,11 +26,10 @@ const Programs = () => {
 			setApiData(data);
 		};
 		api();
-	}, [slug, type]);
+	}, [slug, type, url, history]);
 
 	return apiData ? (
 		<div>
-			{console.log(apiData)}
 			<SubHeader
 				title={apiData.title ? apiData.title : apiData.name}
 				originalTitle={apiData.title ? apiData.original_title : apiData.name}
@@ -62,7 +38,7 @@ const Programs = () => {
 				poster={apiData.poster_path}
 				rating={apiData.vote_average}
 			/>
-			<InfoContainer data={modifieDataApiToRedableHumanString(apiData)} />
+			<InfoContainer data={modifieObjData(apiData)} />
 		</div>
 	) : (
 		<p>Loading...</p>

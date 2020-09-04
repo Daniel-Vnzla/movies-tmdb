@@ -20,8 +20,12 @@ const Recommendations = ({ programms }) => {
 		state: "recommendations",
 	});
 
+	const scrollTop = () => {
+		window.scrollTo({ top: 0 });
+	};
+
 	return (
-		<div style={styles.recommendations}>
+		<div onClick={scrollTop} style={styles.recommendations}>
 			{recommendations.map((program) => (
 				<PosterContainer
 					key={program.id}

@@ -7,6 +7,7 @@ import CompanyCard from "./CompanyCard.js";
 const styles = {
 	grid: {
 		display: "flex",
+		flexFlow: "wrap",
 	},
 };
 

@@ -9,6 +9,9 @@ const styles = {
 		gridTemplateColumns: "115px 1fr",
 		borderRadius: "var(--border-radius)",
 	},
+	img: {
+		minHeight: "170px",
+	},
 	info: {
 		padding: "10px",
 	},

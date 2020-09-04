@@ -27,7 +27,6 @@ const Overview = () => {
 	});
 	return (
 		<div>
-			{console.log("video: ", credits)}
 			{video.length > 0 && (
 				<VideoCard title={video[0].name} video={video[0].key} />
 			)}
