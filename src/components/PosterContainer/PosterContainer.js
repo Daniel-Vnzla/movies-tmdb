@@ -7,9 +7,9 @@ import "./PosterContainer.css";
 const PosterContainer = ({ image, title, ratingValue, id, type }) => {
 	return (
 		<div className="movie-poster">
-			<Link to={`/programs/${type}/${id}`}>
+			<Link to={`/programs/${type}/${id}/overview`}>
 				<div className="img-container">
-					<img loading="lazy" className="img" src={image} alt={image} />
+					<img loading="lazy" className="img" src={image} alt={title} />
 					<div className="rating-container">
 						<CircularProgressBar
 							value={ratingValue}

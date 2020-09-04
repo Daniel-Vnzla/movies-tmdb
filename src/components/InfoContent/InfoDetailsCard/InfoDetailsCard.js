@@ -6,7 +6,6 @@ const InfoDetailsCard = ({ data }) => {
 	console.log(data);
 	return (
 		<div className="info-card">
-			<p className="details">Details</p>
 			{Object.keys(data).map((key) => {
 				if (key === "Adult") {
 					return (

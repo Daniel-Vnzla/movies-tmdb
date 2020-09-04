@@ -6,24 +6,22 @@ const styles = {
 	characterCard: {
 		background: "var(--terciary)",
 		display: "grid",
-		gridTemplateColumns: "110px 1fr",
+		gridTemplateColumns: "115px 1fr",
 		borderRadius: "var(--border-radius)",
-	},
-	img: {
-		minHeight: "168px",
 	},
 	info: {
 		padding: "10px",
 	},
-	character: {
+	name: {
 		fontSize: "1.5rem",
 		fontStyle: "italic",
 		color: "var(--primary)",
 	},
-	name: {
+	character: {
 		fontSize: "1.2rem",
-		color: "var(--text-color-secondary)",
+		color: "var(--text-color-terciary)",
 	},
+
 	department: {
 		marginTop: "auto",
 	},
@@ -39,8 +37,8 @@ const CharacterCard = ({ character, name, img, department }) => {
 				/>
 			</div>
 			<div style={styles.info}>
-				<p style={styles.character}>{character}</p>
 				<p style={styles.name}>{name}</p>
+				<p style={styles.character}>{character}</p>
 				{department && <p style={styles.department}>{department}</p>}
 			</div>
 		</div>

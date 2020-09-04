@@ -23,7 +23,7 @@
 	right: 0;
 	bottom: 0;
 	background-color: var(--bg-color);
-	opacity: 0.9;
+	opacity: 0.8;
 }
 
 /* ------------ RATING SECTION -------------- */
@@ -49,6 +49,7 @@
 
 .sub-header .description {
 	position: relative;
+	width: 100%;
 	display: grid;
 	grid-template-columns: 350px 1fr;
 	height: 350px;

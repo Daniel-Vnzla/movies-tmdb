@@ -14,7 +14,8 @@
   --secondary: #d92bc2;
   --terciary: #12293b;
   --bg-color: #0d1f2d;
-  --text-color-secondary: #c3c3c3;
+  --text-color-terciary: #c3c3c3;
+  --text-color-secondary: #a58ad5;
 }
 
 body {
@@ -36,7 +37,7 @@ code {
 img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 iframe {

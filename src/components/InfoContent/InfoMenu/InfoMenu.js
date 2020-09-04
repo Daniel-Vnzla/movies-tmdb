@@ -7,6 +7,7 @@ import Videos from "../InfoContainer/Videos.js";
 import Staff from "../InfoContainer/Staff.js";
 import Companies from "../InfoContainer/Companies.js";
 import Recommendations from "../InfoContainer/Recommendations.js";
+import Similar from "../InfoContainer/Similar.js";
 
 const InfoView = () => {
 	const { url, path } = useRouteMatch();
@@ -18,7 +19,7 @@ const InfoView = () => {
 		staff: Staff,
 		companies: Companies,
 		recommendations: Recommendations,
-		similar: Overview,
+		similar: Similar,
 	};
 
 	return (

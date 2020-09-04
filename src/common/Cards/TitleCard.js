@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 const styles = {
 	title: {
 		fontSize: "1.2rem",
-		color: "var(--secondary)",
+		color: "var(--text-color-secondary)",
 		marginTop: "20px",
+		marginBottom: "5px",
 	},
 };
 

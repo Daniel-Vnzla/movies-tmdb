@@ -27,7 +27,7 @@ const SubHeader = ({
 					className="rating-text"
 				/>
 			</div>
-			<div className="description container">
+			<div className="description">
 				<div className="img-container">
 					<div className="float-image-container">
 						<img
