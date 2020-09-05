@@ -20,7 +20,7 @@ const styles = {
 
 const Home = () => {
 	const apiData = useSelector((data) => data);
-	if (apiData.loading) {
+	if (!apiData.loading) {
 		return (
 			<div style={styles.loadingContainer}>
 				<div style={styles.loading}>
