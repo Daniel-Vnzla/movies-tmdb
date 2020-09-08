@@ -9,7 +9,7 @@ const styles = buildStyles({
 	strokeLinecap: "round",
 	textColor: "#fff",
 	pathColor: "#af1b3f",
-	trailColor: "#224865",
+	trailColor: "var(--text-color-secondary)",
 	backgroundColor: "#af1b3f",
 });
 

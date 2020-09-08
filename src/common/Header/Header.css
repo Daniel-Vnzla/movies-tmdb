@@ -44,17 +44,3 @@
 .header .navbar-wrapper .navbar .nav-item:hover {
   background: var(--primary);
 }
-
-.header .navbar-wrapper .search input {
-  color: var(--text-color);
-  border: none;
-  background: #77777785;
-  height: 32px;
-  padding: 10px;
-  border-radius: var(--border-radius);
-  transition: 300ms;
-}
-
-.header .navbar-wrapper .search input:focus {
-  width: 300px;
-}

@@ -25,7 +25,7 @@ const styles = {
 
 const Recommendations = ({ programms }) => {
 	const { slug, type } = useParams();
-	const { data, loading } = useFetch({
+	const [data, loading] = useFetch({
 		id: slug,
 		type: type === "movies" ? "movie" : "tv",
 		state: "recommendations",

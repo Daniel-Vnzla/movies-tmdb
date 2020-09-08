@@ -5,36 +5,15 @@ import { useFetch } from "../../../customHooks/CustomHooks.js";
 import CharacterCardContainer from "../../../common/Cards/CharacterCardContainer.js";
 import Loading from "../../Loading/Loading.js";
 
-const styles = {
-	loadingContainer: {
-		width: "100%",
-		display: "flex",
-		justifyContent: "center",
-		alignItems: "center",
-	},
-	loading: {
-		width: "250px",
-		height: "250px",
-	},
-};
-
 const Staff = (props) => {
 	const { slug, type } = useParams();
-	const { data, loading } = useFetch({
+	const [data, loading] = useFetch({
 		id: slug,
 		type: type === "movies" ? "movie" : "tv",
 		state: "credits",
 	});
 
-	if (loading) {
-		return (
-			<div style={styles.loadingContainer}>
-				<div style={styles.loading}>
-					<Loading />
-				</div>
-			</div>
-		);
-	}
+	if (loading) return <Loading />;
 
 	return (
 		<div>

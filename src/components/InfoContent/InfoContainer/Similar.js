@@ -1,7 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../../customHooks/CustomHooks.js";
+
 import PosterContainer from "../../PosterContainer/PosterContainer.js";
+import Loading from "../../Loading/Loading.js";
 
 const styles = {
 	similar: {
@@ -9,15 +11,31 @@ const styles = {
 		gridTemplateColumns: "repeat(3,1fr)",
 		gridGap: "5px",
 	},
+	loadingContainer: {
+		width: "100%",
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+	},
 };
 
 const Similar = (props) => {
 	const { slug, type } = useParams();
-	const similar = useFetch({
+	const [similar, loading] = useFetch({
 		id: slug,
 		type: type === "movies" ? "movie" : "tv",
 		state: "similar",
 	});
+
+	if (loading) {
+		return (
+			<div style={styles.loadingContainer}>
+				<div style={styles.loading}>
+					<Loading />
+				</div>
+			</div>
+		);
+	}
 
 	return (
 		<div style={styles.similar}>

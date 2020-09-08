@@ -16,7 +16,7 @@ export const setApi = (newApiState) => {
 	}`;
 };
 
-const elementsToFilter = [
+const apiFilter = [
 	"backdrop_path",
 	"id",
 	"imdb_id",
@@ -63,7 +63,7 @@ const modifieObjValues = (obj) => {
 };
 
 export const modifieObjData = (obj) => {
-	const filter = filterObjKeys(obj, elementsToFilter);
+	const filter = filterObjKeys(obj, apiFilter);
 	const humanRedableKeys = objKeysToHumanRedableString(filter);
 	const valuesCorrectly = modifieObjValues(humanRedableKeys);
 	return valuesCorrectly;

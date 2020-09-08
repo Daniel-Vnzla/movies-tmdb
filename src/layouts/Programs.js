@@ -19,10 +19,6 @@ const styles = {
 		justifyContent: "center",
 		alignItems: "center",
 	},
-	loading: {
-		width: "250px",
-		height: "250px",
-	},
 };
 
 const Programs = () => {

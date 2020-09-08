@@ -15,27 +15,23 @@ const styles = {
 		justifyContent: "center",
 		alignItems: "center",
 	},
-	loading: {
-		width: "250px",
-		height: "250px",
-	},
 };
 
 const Overview = () => {
 	const { slug, type } = useParams();
-	const { data: video, loading } = useFetch({
+	const [video, loading] = useFetch({
 		id: slug,
 		type: type === "movies" ? "movie" : "tv",
 		state: "videos",
 	});
 
-	const { data: credits } = useFetch({
+	const [credits] = useFetch({
 		id: slug,
 		type: type === "movies" ? "movie" : "tv",
 		state: "credits",
 	});
 
-	const { data: companies } = useFetch({
+	const [companies] = useFetch({
 		id: slug,
 		type: type === "movies" ? "movie" : "tv",
 	});

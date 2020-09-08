@@ -2,6 +2,8 @@ import React from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
+import Search from "../../components/Search/Search.js";
+
 const Header = () => {
   return (
     <header className="header container">
@@ -18,9 +20,7 @@ const Header = () => {
             Tv Shows
           </Link>
         </nav>
-        <div className="search">
-          <input type="text" placeholder="Search..." />
-        </div>
+        <Search />
       </div>
     </header>
   );

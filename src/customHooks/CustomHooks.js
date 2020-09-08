@@ -24,7 +24,6 @@ export const useFetch = (apiState) => {
 		const fetchApi = async () => {
 			setLoadingApis((loading) => loading + 1);
 			try {
-				console.log(loading);
 				const { data } = await axios.get(setApi(apiState));
 				setData(data.results ? data.results : data);
 			} catch (err) {
@@ -35,5 +34,5 @@ export const useFetch = (apiState) => {
 		};
 		fetchApi(); // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	return { data, loading };
+	return [data, loading];
 };

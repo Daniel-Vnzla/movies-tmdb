@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import noProfile from "../../images/noProfile.jpg";
+import noImage from "../../images/no-image.jpg";
 
 const styles = {
 	characterCard: {
@@ -10,6 +10,7 @@ const styles = {
 		borderRadius: "var(--border-radius)",
 	},
 	img: {
+		height: "100%",
 		minHeight: "170px",
 	},
 	info: {
@@ -35,7 +36,7 @@ const CharacterCard = ({ character, name, img, department }) => {
 		<div style={styles.characterCard}>
 			<div style={styles.img}>
 				<img
-					src={img ? `https://image.tmdb.org/t/p/original/${img}` : noProfile}
+					src={img ? `https://image.tmdb.org/t/p/original/${img}` : noImage}
 					alt={character}
 				/>
 			</div>

@@ -2,15 +2,34 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../../customHooks/CustomHooks.js";
 import VideoCard from "../../../common/Cards/VideoCard.js";
+import Loading from "../../Loading/Loading.js";
+
+const styles = {
+	loadingContainer: {
+		width: "100%",
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+	},
+};
 
 const Videos = () => {
 	const { slug, type } = useParams();
-	const videos = useFetch({
+	const [videos, loading] = useFetch({
 		id: slug,
 		type: type === "movies" ? "movie" : "tv",
 		state: "videos",
 	});
 
+	if (loading) {
+		return (
+			<div style={styles.loadingContainer}>
+				<div style={styles.loading}>
+					<Loading />
+				</div>
+			</div>
+		);
+	}
 	return (
 		<div>
 			{videos.length > 0 ? (

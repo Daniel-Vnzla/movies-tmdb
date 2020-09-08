@@ -12,10 +12,6 @@ const styles = {
 		justifyContent: "center",
 		alignItems: "center",
 	},
-	loading: {
-		width: "250px",
-		height: "250px",
-	},
 };
 
 const Home = () => {
@@ -29,8 +25,9 @@ const Home = () => {
 			</div>
 		);
 	}
-
-	const slideShowItems = apiData.movies.topRating.slice(0, 8);
+	console.log(apiData);
+	const slideShowItems = apiData.movies.topRating.slice(0, 6);
+	console.log(slideShowItems);
 	return (
 		<div className="container">
 			<SlideShow data={slideShowItems} />
