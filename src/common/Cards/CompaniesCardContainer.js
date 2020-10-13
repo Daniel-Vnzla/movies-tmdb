@@ -21,7 +21,7 @@ const CompaniesCardContainer = ({ companies }) => {
 							<CompanyCard
 								key={c.name}
 								title={c.name}
-								img={`https://image.tmdb.org/t/p/original/${c.logo_path}`}
+								img={`https://image.tmdb.org/t/p/w500/${c.logo_path}`}
 							/>
 						);
 					})

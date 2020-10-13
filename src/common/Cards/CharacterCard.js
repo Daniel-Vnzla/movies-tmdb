@@ -36,7 +36,7 @@ const CharacterCard = ({ character, name, img, department }) => {
 		<div style={styles.characterCard}>
 			<div style={styles.img}>
 				<img
-					src={img ? `https://image.tmdb.org/t/p/original/${img}` : noImage}
+					src={img ? `https://image.tmdb.org/t/p/w500/${img}` : noImage}
 					alt={character}
 				/>
 			</div>
