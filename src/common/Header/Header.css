@@ -14,33 +14,3 @@
   color: var(--primary);
 }
 
-.header .navbar-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header .navbar-wrapper .navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header .navbar-wrapper .navbar .separator {
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-}
-
-.header .navbar-wrapper .navbar .nav-item {
-  font-weight: bold;
-  border-radius: var(--border-radius);
-  color: var(--text-color);
-  padding: 10px;
-  margin: 0 6px;
-  transition: 400ms background;
-}
-
-.header .navbar-wrapper .navbar .nav-item:hover {
-  background: var(--primary);
-}
