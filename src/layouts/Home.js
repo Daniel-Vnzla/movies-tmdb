@@ -25,9 +25,7 @@ const Home = () => {
 			</div>
 		);
 	}
-	console.log(apiData);
 	const slideShowItems = apiData.movies.topRating.slice(0, 6);
-	console.log(slideShowItems);
 	return (
 		<div className="container">
 			<SlideShow data={slideShowItems} />

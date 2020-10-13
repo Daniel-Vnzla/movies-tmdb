@@ -45,7 +45,6 @@ const Search = (props) => {
 	const handleInput = ({ target }) => {
 		const queryLength = target.value.length;
 		if (queryLength >= 2) setQuery(target.value);
-		console.log(queryLength);
 	};
 
 	function renderSearchCards() {

@@ -10,18 +10,7 @@ const Header = () => {
       <Link to="/">
         <h1 className="title">MoV</h1>
       </Link>
-      <div className="navbar-wrapper">
-        <nav className="navbar">
-          <Link className="nav-item" to="/movies">
-            Movies
-          </Link>
-          <span className="separator"> | </span>
-          <Link className="nav-item" to="/tv-shows">
-            Tv Shows
-          </Link>
-        </nav>
         <Search />
-      </div>
     </header>
   );
 };
