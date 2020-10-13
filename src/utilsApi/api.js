@@ -4,7 +4,7 @@ const defaultApiAtributes = {
 	state: "",
 	id: "",
 	page: 1,
-	imgPath: "https://image.tmdb.org/t/p/original",
+	imgPath: "https://image.tmdb.org/t/p/w500",
 };
 
 export const setApi = (newApiState) => {
