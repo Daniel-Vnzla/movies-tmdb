@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import "./SlideShowCard.css";
-import arrow from "../../images/arrow.png";
 
 import CircularProgressBar from "../CircularProgressBar.js";
 
@@ -21,12 +20,6 @@ const SlideShowCard = ({ data }) => (
 					src={data.poster_path}
 				></img>
 			</Link>
-			<div className="trailer-container">
-				<button className="trailer-btn">
-					<span className="btn-title">Trailer</span>
-					<img loading="lazy" className="arrow" src={arrow} alt="arrow" />
-				</button>
-			</div>
 		</div>
 		<div className="info-section">
 			<div className="rating">

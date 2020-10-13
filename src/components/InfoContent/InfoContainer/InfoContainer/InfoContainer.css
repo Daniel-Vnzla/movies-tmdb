@@ -1,0 +1,12 @@
+.info-container {
+	display: grid;
+	grid-template-columns: 320px 1fr;
+	grid-gap: 40px;
+}
+
+@media (max-width: 720px) {
+	.info-container {
+		margin: 0 20px;
+		grid-template-columns: 1fr;
+	}
+}

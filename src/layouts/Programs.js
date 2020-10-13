@@ -4,7 +4,7 @@ import { setApi, modifieObjData } from "../utilsApi/api.js";
 import { useParams, useHistory, useRouteMatch } from "react-router-dom";
 
 import SubHeader from "../components/SubHeader/SubHeader.js";
-import InfoContainer from "../components/InfoContent/InfoContainer/InfoContainer.js";
+import InfoContainer from "../components/InfoContent/InfoContainer/InfoContainer/InfoContainer.js";
 import Loading from "../components/Loading/Loading.js";
 
 const styles = {
