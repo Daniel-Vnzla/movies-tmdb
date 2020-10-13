@@ -52,7 +52,7 @@ const Recommendations = ({ programms }) => {
 					id={program.id}
 					ratingValue={program.vote_average}
 					type={type}
-					image={"https://image.tmdb.org/t/p/original" + program.poster_path}
+					image={"https://image.tmdb.org/t/p/w500" + program.poster_path}
 				/>
 			))}
 		</div>

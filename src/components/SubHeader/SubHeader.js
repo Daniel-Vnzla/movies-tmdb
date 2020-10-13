@@ -16,7 +16,7 @@ const SubHeader = ({
 		<div className="sub-header">
 			<div className="backdrop">
 				<img
-					src={`https://image.tmdb.org/t/p/original/${backDrop}`}
+					src={`https://image.tmdb.org/t/p/w500/${backDrop}`}
 					alt={title}
 				/>
 			</div>
@@ -31,7 +31,7 @@ const SubHeader = ({
 				<div className="img-container">
 					<div className="float-image-container">
 						<img
-							src={`https://image.tmdb.org/t/p/original/${poster}`}
+							src={`https://image.tmdb.org/t/p/w500/${poster}`}
 							alt={title}
 						/>
 					</div>
