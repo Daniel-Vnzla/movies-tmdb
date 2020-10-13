@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./SubHeader.css";
 
 import CircularProgressBar from "../CircularProgressBar.js";
-
+  
 const SubHeader = ({
 	title,
 	poster,

@@ -96,3 +96,42 @@
 	margin-top: 30px;
 	font-size: 0.95rem;
 }
+
+
+/* ------- MEDIA QUERYS -------- */
+
+@media (max-width: 720px) {
+	.sub-header {
+		display: flex;
+		flex-direction: column;
+		height: 1500px;
+	}
+
+	.sub-header .description {
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.sub-header .description .overview-section{
+		margin-top: 50px;
+	}
+
+	.sub-header .description .img-container .float-image-container {
+		position: relative;
+		top: 0;
+	}
+
+	.sub-header .rating-section {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+}
+
+@media (max-width: 520px) {
+	.sub-header {
+		height: 1200px;
+	}
+}

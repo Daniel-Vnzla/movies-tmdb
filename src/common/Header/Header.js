@@ -10,7 +10,7 @@ const Header = () => {
       <Link to="/">
         <h1 className="title">MoV</h1>
       </Link>
-        <Search />
+      <Search />
     </header>
   );
 };
