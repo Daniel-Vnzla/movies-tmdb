@@ -26,7 +26,6 @@ const Programs = () => {
 	const { url } = useRouteMatch();
 	const { slug, type } = useParams();
 	const [apiData, setApiData] = useState(null);
-	console.log(slug,type)
 
 	useEffect(() => {
 		if (url !== `/programs/${type}/${slug}/overview`) {

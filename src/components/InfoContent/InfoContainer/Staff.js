@@ -9,7 +9,7 @@ const Staff = (props) => {
 	const { slug, type } = useParams();
 	const [data, loading] = useFetch({
 		id: slug,
-		type: type === "movies" ? "movie" : "tv",
+		type: type === "movies" || type === "movie" ? "movie" : "tv",
 		state: "credits",
 	});
 

@@ -18,7 +18,7 @@ const Companies = (props) => {
 	const { slug, type } = useParams();
 	const [companies, loading] = useFetch({
 		id: slug,
-		type: type === "movies" ? "movie" : "tv",
+		type: type === "movies" || type === "movie" ? "movie" : "tv",
 	});
 
 	if (loading) {

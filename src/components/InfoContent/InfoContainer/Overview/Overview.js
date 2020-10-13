@@ -21,19 +21,19 @@ const Overview = () => {
 	const { slug, type } = useParams();
 	const [video, loading] = useFetch({
 		id: slug,
-		type: type === "movies" ? "movie" : "tv",
+		type: type === "movies" || type === "movie" ? "movie" : "tv",
 		state: "videos",
 	});
 
 	const [credits] = useFetch({
 		id: slug,
-		type: type === "movies" ? "movie" : "tv",
+		type: type === "movies" || type === "movie" ? "movie" : "tv",
 		state: "credits",
 	});
 
 	const [companies] = useFetch({
 		id: slug,
-		type: type === "movies" ? "movie" : "tv",
+		type: type === "movies" || type === "movie" ? "movie" : "tv",
 	});
 
 	if (loading) {

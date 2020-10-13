@@ -17,7 +17,7 @@ const Videos = () => {
 	const { slug, type } = useParams();
 	const [videos, loading] = useFetch({
 		id: slug,
-		type: type === "movies" ? "movie" : "tv",
+		type: type === "movies" || type === "movie" ? "movie" : "tv",
 		state: "videos",
 	});
 

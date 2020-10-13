@@ -23,7 +23,7 @@ const Similar = (props) => {
 	const { slug, type } = useParams();
 	const [similar, loading] = useFetch({
 		id: slug,
-		type: type === "movies" ? "movie" : "tv",
+		type: type === "movies" || type === "movie" ? "movie" : "tv",
 		state: "similar",
 	});
 
