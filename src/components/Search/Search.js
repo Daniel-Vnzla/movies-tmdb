@@ -24,6 +24,7 @@ const Search = (props) => {
 				const filterPersons = data.results.filter(
 					({ media_type }) => media_type !== "person"
 				);
+				console.log(filterPersons)
 				setList(filterPersons);
 				setLoading(false);
 			} catch (err) {

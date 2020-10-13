@@ -26,6 +26,7 @@ const Programs = () => {
 	const { url } = useRouteMatch();
 	const { slug, type } = useParams();
 	const [apiData, setApiData] = useState(null);
+	console.log(slug,type)
 
 	useEffect(() => {
 		if (url !== `/programs/${type}/${slug}/overview`) {
@@ -35,7 +36,7 @@ const Programs = () => {
 			const { data } = await axios.get(
 				setApi({
 					id: slug,
-					type: type === "movies" ? "movie" : "tv",
+					type: type === "movies" || type === 'movie' ? "movie" : "tv",
 				})
 			);
 			setApiData(data);
